@@ -14,7 +14,6 @@ public class MemberDeleteAction extends AbstractController {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		
 		InterMemberDAO mvo = new MemberDAO();
 		HttpSession session = request.getSession();
 		MemberVO loginuser = (MemberVO)session.getAttribute("loginuser");
@@ -37,7 +36,6 @@ public class MemberDeleteAction extends AbstractController {
 		
 				}
 				else if (result == 1) {
-					
 					session.invalidate();
 					message = "성공적으로 삭제되었습니다.";
 					loc = request.getContextPath() + "/";
@@ -46,12 +44,8 @@ public class MemberDeleteAction extends AbstractController {
 				else {
 					message = "삭제에 실패했습니다.";
 					loc = "javascript:history.back()";
-					
 				}			
-				
 			}
-				
-			
 		}
 
 		request.setAttribute("message", message);

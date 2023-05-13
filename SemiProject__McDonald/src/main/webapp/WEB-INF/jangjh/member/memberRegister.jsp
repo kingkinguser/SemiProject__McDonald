@@ -46,7 +46,6 @@
  				
   			}
  			else{
- 				
  				// 공백만이 아닌 글자를 입력했을 경우
  				$("table#tblMemberRegister :input").prop("disabled", false);	
  				$(e.target).parent().find("span.error").hide();
@@ -312,12 +311,13 @@
     function isExistIdCheck(){
     	b_flag_idDuplicate_click = true;
     	//"아이디중복확인"을 클릭했는지 클릭을 안했는지 여부를 알아오기 위한 용도
+    	//입력하고자 하는 아이디가 데이터베이스 테이블에 존재하는지, 존재하지 않는지 알아와야 한다.
     	
         //jQuery를 사용한 Ajax
         $.ajax({
         	
         	url:"<%= ctxPath %>/member/idDuplicateCheck.run",  
-        	data:{"userid":$("input#userid").val()}, 
+        	data:{"userid":$("input#userid").val()},  // data는 /SemiProject__McDonald/member/idDuplicateCheck.up"로 전송
         	type:"post",                              
         	dataType:"json",                       
         	async:true,    
@@ -352,7 +352,6 @@
 	function isExistEmailCheck() {
 		
 		b_flag_emailDuplicate_click = true;
-		
     	//"이메일중복확인"을 클릭했는지 클릭을 안했는지 여부를 알아오기 위한 용도
     	//입력하고자 하는 아이디가 데이터베이스 테이블에 존재하는지, 존재하지 않는지 알아와야 한다.
     	
@@ -360,7 +359,7 @@
         $.ajax({
         	
         	url:"<%= ctxPath %>/member/emailDuplicateCheck.run",  
-        	data:{"email":$("input#email").val()},  // data는 /MyMVC/member/emailDuplicateCheck.up"로 전송
+        	data:{"email":$("input#email").val()},  // data는 /SemiProject__McDonald/member/emailDuplicateCheck.up"로 전송
         	type:"post",     
         	dataType:"json",
         	async:true,      

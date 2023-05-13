@@ -31,7 +31,8 @@
 <link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/memberEdit.css" type="text/css"/>
 
     <title>회원 정보 수정</title>
-    
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>    
 <style type="text/css">
 
 	.bg1 {
@@ -383,7 +384,6 @@
 	
 	// "수정" 버튼 클릭시 호출되는 함수
 	function goEdit(){
-		
 		// ** 필수입력사항에 모두 입력이 되었는지 검사한다. **//
 		let b_Flag_requiredInfo = false;
 		
@@ -394,13 +394,9 @@
 				return false; // break;라는 뜻이다.
 			}
 		});
-		
 		if(b_Flag_requiredInfo){
 			return; // 함수종료
 		}
-		
-		////////////////////////////////////////////////////////////////////////////////////////
-		
 		
 		// "이메일중복확인"을 클릭했는지 여부 알아오기 
 		if(b_flag_email_change && !b_flag_emailDuplicate_click){

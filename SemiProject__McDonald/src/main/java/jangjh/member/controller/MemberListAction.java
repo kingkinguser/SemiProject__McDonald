@@ -39,7 +39,8 @@ public class MemberListAction extends AbstractController {
 			/////////////////////////////////////////////////////////////////////////////////////////
 			
 			if(searchType == null || 
-			   (!"member_name".equals(searchType) && !"userid".equals(searchType) && !"email".equals(searchType)) ) {  // searchType이 name이 아니고 userid도 아니고 email도 아닌 경우  
+			   (!"member_name".equals(searchType) && !"userid".equals(searchType) && !"email".equals(searchType)) ) {  
+				// searchType이 name이 아니고 userid도 아니고 email도 아닌 경우  
 				searchType = "";
 			}
 			
